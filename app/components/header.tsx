@@ -16,7 +16,7 @@ export default function Header() {
           <p className="font-bold ml-4 text-[18px] leading-[23px]">Evently</p>
         </div>
         <DropdownMenu>
-          <DropdownMenuTrigger>
+          <DropdownMenuTrigger className="focus:outline-none focus-visible:outline-none">
             <Image src="/avatar.svg" alt="avatar" width={40} height={40} />
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" sideOffset={4}>
