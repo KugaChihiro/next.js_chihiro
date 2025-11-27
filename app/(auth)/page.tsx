@@ -64,7 +64,7 @@ export default function SigninForm() {
           )}
         </div>
         {/* Submit ボタン */}
-        <div className = "flex justify-end w-full">
+        <div className = "flex justify-end  w-[448px]">
           <Button
             type="submit"
             className="text-white bg-[rgba(51,65,85,1)]"
