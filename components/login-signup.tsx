@@ -6,8 +6,11 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { signinSchema, SigninFormData } from '@/lib/signinSchema';
 import { Button } from '@/components/ui/button';
+import { ArrowUpRight } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
-export default function SigninForm() {
+export default function SignupLoginForm({ type }: { type: string }) {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -27,6 +30,19 @@ export default function SigninForm() {
       className="flex flex-col items-center"
     >
       <div className="flex flex-col items-center py-[30px] px-[160px]">
+
+        <div className = "flex justify-end w-full mb-[48px]">
+          <Button
+            type="button"
+            onClick={() => router.push(type === 'Login' ? '/register' : '/login')}
+            variant="outline"
+            className="flex items-center gap-2"
+          >
+            {type === 'Login' ? "Sign Up" : "Login"}
+            <ArrowUpRight className="w-4 h-4" />
+          </Button>
+        </div>
+
         <div className = "flex flex-col items-center mt-[20px] mb-[32px] gap-[4px]">
           <h1 className = "font-bold text-[28px] tracking-[0px] text-center">Welcome to Evently</h1>
           <h3 className = "font-normal text-[16px] tracking-[0px] text-center">Manage your events with ease. Sign in to get started.</h3>
@@ -69,7 +85,7 @@ export default function SigninForm() {
             type="submit"
             className="text-white bg-[rgba(51,65,85,1)]"
           >
-            Login
+            {type}
           </Button>
         </div>
       </div>
